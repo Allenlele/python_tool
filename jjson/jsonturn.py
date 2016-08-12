@@ -13,6 +13,21 @@ def stringToObject(jstring):
     return json.loads(jstring)
 
 
+# json字符串校验是否正确,可打印错误
+def isRightJson(jstring, printerror=False):
+    try:
+        json.loads(jstring)
+        if printerror:
+            return "", True
+        else:
+            return True
+    except Exception as e:
+        if printerror:
+            return e, False
+        else:
+            return False
+
+
 # 对象解析成json字符串,支持排序和缩进
 def objectToString(jobject, sort=False, indent=None):
     return json.dumps(jobject, sort_keys=sort, indent=indent)
@@ -27,7 +42,14 @@ if __name__ == "__main__":
     "an": "",
     "andid": ""
     }'''
-    jobject = StringToObject(jstring)
+    jobject = stringToObject(jstring)
     print(jobject)
     print(objectToString(jobject))
-    print(objectToString(jobject,True,indent=4))
+    print(objectToString(jobject, True, indent=4))
+
+    errorstring = "{dddd:ddd}"
+    ok = isRightJson(errorstring)
+    print(ok)
+
+    ok = isRightJson(errorstring, True)
+    print(ok)
