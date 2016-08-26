@@ -1,8 +1,11 @@
 # Python_Tool工具库
+
 >本库功能强劲,python3专用.
+>由于对包机制不熟，所以请见谅
 
 # 包介绍
 1.jjson json处理库的封装
+
 ```
 # json字符串解析成对象
 def stringToObject(jstring)
@@ -19,3 +22,5 @@ def formatStringToString(jstring, sort=True)
 # 格式化json字符串,并可选择存入文件
 def formatStrigToFile(filepath, sort=True, filesavepath="")
 ```
+
+2.jhttp　网络包

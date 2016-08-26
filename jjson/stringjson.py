@@ -6,6 +6,7 @@
 
 import json
 
+
 # 格式化json字符串,默认按键排序
 def formatStringToString(jstring, sort=True):
     temp = json.loads(jstring)
