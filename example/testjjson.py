@@ -2,8 +2,8 @@
 # Created by 一只尼玛 on 16-8-26.
 # 功能: 测试jjson
 
-from jjson.stringjson import formatStrigToFile
-from jjson.basejson import stringToObject,objectToString,isRightJson
+from tool.jjson.stringjson import formatStrigToFile
+from tool.jjson.basejson import stringToObject,objectToString,isRightJson
 
 if __name__ == "__main__":
     file = "./jjson/test/testjson.md"

@@ -3,7 +3,7 @@
 # 功能:
 # 测试爬虫
 
-from jhttp.spider import getHtml
+from tool.jhttp.spider import getHtml
 
 if __name__ == "__main__":
     url="http://m.vip.com/server.html"
