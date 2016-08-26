@@ -1,0 +1,14 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file!  Do not edit.
+
+.vip.com	TRUE	/	FALSE	1474788523	WAP[from]	123test123
+.vip.com	TRUE	/	FALSE		m_vipUINFO	op_rName%3AWAP
+.vip.com	TRUE	/	FALSE	1535268599	mars_cid	1472196597000_169c68df0fd212bc3aabe5acb77b2299
+.vip.com	TRUE	/	FALSE	1535268598	wap_consumer	A1
+.vip.com	TRUE	/	FALSE		warehouse	VIP_NH
+m.vip.com	FALSE	/	FALSE	1474788523	WAP[from]	123test123
+m.vip.com	FALSE	/	FALSE	1558510199	WAP[hd]	1
+m.vip.com	FALSE	/	FALSE		WAP_ID	cc8cd0ec13514664885823a69fdda2441458354f
+m.vip.com	FALSE	/	FALSE		WAP_u_new	newone
+m.vip.com	FALSE	/	FALSE		time_offset	1
