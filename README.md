@@ -12,6 +12,8 @@
 ---- data　数据
 ```
 
+请看scrapy部分！！！
+
 # 包介绍
 1.jjson json处理库的封装
 
@@ -56,4 +58,8 @@ def createjia(path)
 
 # 今天日期的字符串
 def todaystring()
+
+# 获取文件类型，传入文件名
+def filetype(filename)
+
 ```

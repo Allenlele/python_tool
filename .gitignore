@@ -1,6 +1,4 @@
 .idea/*
 __py*
 /data/*
-*.xlsx
-*.txt
-*.html
+cookie.txt
