@@ -1,13 +1,14 @@
 # -*-coding:utf-8-*-
 # Created by 一只尼玛 on 16-8-26.
 # 功能:
-#　抓取网页
+# 　抓取网页
 import urllib.request, urllib.parse, http.cookiejar
-import os, time,re
+import os, time, re
 import http.cookies
 
 
-def getHtml(url,daili='',postdata={},header=[]):
+# 自己封装的抓取函数
+def getHtml(url, daili='', postdata={}, header=[]):
     """
     抓取网页：支持cookie
     第一个参数为网址，第二个为POST的数据
@@ -29,23 +30,24 @@ def getHtml(url,daili='',postdata={},header=[]):
     if os.path.exists('../subcookie.txt'):
         cookie = open('../subcookie.txt', 'r').read()
     else:
-        cookie=''
+        cookie = ''
     # 建造带有COOKIE处理器的打开专家
-    proxy_support = urllib.request.ProxyHandler({'http':'http://'+daili})
+    proxy_support = urllib.request.ProxyHandler({'http': 'http://' + daili})
     # 开启代理支持
     if daili:
-        print('代理:'+daili+'启动')
-        opener = urllib.request.build_opener(proxy_support, urllib.request.HTTPCookieProcessor(cj), urllib.request.HTTPHandler)
+        print('代理:' + daili + '启动')
+        opener = urllib.request.build_opener(proxy_support, urllib.request.HTTPCookieProcessor(cj),
+                                             urllib.request.HTTPHandler)
     else:
         opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
     if header:
         pass
     else:
-        header=[('User-Agent',
-         'Mozilla/5.0 (iPad; U; CPU OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5'),
-        ('Referer', 'http://s.m.taobao.com'),
-        ('Host', 'h5.m.taobao.com'),
-        ('Cookie', cookie)]
+        header = [('User-Agent',
+                   'Mozilla/5.0 (iPad; U; CPU OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5'),
+                  ('Referer', 'http://s.m.taobao.com'),
+                  ('Host', 'h5.m.taobao.com'),
+                  ('Cookie', cookie)]
     # 打开专家加头部
     opener.addheaders = header
 
@@ -66,3 +68,5 @@ def getHtml(url,daili='',postdata={},header=[]):
     return html_bytes
 
 
+if __name__ == "__main__":
+    print(getHtml("http://www.baidu.com").decode("utf-8", "ignore"))

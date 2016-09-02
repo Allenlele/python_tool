@@ -5,17 +5,9 @@
 #
 #
 
-import xml.dom.minidom
-import json
-from openpyxl import Workbook
-from openpyxl import load_workbook
-import urllib.request, urllib.parse, http.cookiejar
+
 import os, time, re
-import http.cookies
 import xlsxwriter as wx
-from PIL import Image
-import pymysql
-import socket
 
 
 # 找出文件夹下所有html后缀的文件
@@ -31,7 +23,8 @@ def listfiles(rootdir, prefix='.xml'):
             pass
 
 
-def writeexcel(path, dealcontent):
+# 将数据写入Excel
+def writeexcel(path, dealcontent=[]):
     workbook = wx.Workbook(path)
     top = workbook.add_format(
         {'border': 1, 'align': 'center', 'bg_color': 'white', 'font_size': 11, 'font_name': '微软雅黑'})
@@ -51,19 +44,10 @@ def writeexcel(path, dealcontent):
         else:
             formatt = top
         for j in range(0, len(dealcontent[i])):
-            if i != 0 and j == len(dealcontent[i]) - 1:
-                if dealcontent[i][j] == '':
-                    worksheet.write(i, j, ' ', formatt)
-                else:
-                    try:
-                        worksheet.insert_image(i, j, dealcontent[i][j])
-                    except:
-                        worksheet.write(i, j, ' ', formatt)
+            if dealcontent[i][j]:
+                worksheet.write(i, j, dealcontent[i][j].replace(' ', ''), formatt)
             else:
-                if dealcontent[i][j]:
-                    worksheet.write(i, j, dealcontent[i][j].replace(' ', ''), formatt)
-                else:
-                    worksheet.write(i, j, '无', formatt)
+                worksheet.write(i, j, '', formatt)
 
     workbook.close()
 
@@ -83,6 +67,14 @@ def createjia(path):
         print('目录已经存在：' + path)
 
 
+# 今天日期的字符串
 def todaystring():
     today = time.strftime('%Y%m%d', time.localtime())
     return today
+
+
+if __name__ == "__main__":
+    path = "./test"
+    createjia(path)
+    content = [['第一列', '第二列'], ['１', '２']]
+    writeexcel(path + "/" + todaystring() + ".xlsx", content)

@@ -30,6 +30,6 @@ def formatStrigToFile(filepath, sort=True, filesavepath=""):
 
 if __name__ == "__main__":
     file = "test/testjson.md"
-    savefile="test/testjsonformat.md"
-    temp = formatStrigToFile(file,True,savefile)
+    savefile = "test/testjsonformat.md"
+    temp = formatStrigToFile(file, True, savefile)
     print(temp)

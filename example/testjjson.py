@@ -6,8 +6,8 @@ from tool.jjson.stringjson import formatStrigToFile
 from tool.jjson.basejson import stringToObject,objectToString,isRightJson
 
 if __name__ == "__main__":
-    file = "./jjson/test/testjson.md"
-    savefile="./jjson/test/testjsonformat.md"
+    file = "../tool/jjson/test/testjson.md"
+    savefile="../tool/jjson/test/testjsonformat.md"
     temp = formatStrigToFile(file,True,savefile)
     print(temp)
 

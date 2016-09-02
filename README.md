@@ -3,6 +3,15 @@
 >本库功能强劲,python3专用.
 >由于对包机制不熟，所以请见谅
 
+# 目录结构
+
+```
+---- tool 工具箱
+---- example　工具箱示例
+---- scrapy　爬虫例子
+---- data　数据
+```
+
 # 包介绍
 1.jjson json处理库的封装
 
@@ -24,3 +33,27 @@ def formatStrigToFile(filepath, sort=True, filesavepath="")
 ```
 
 2.jhttp　网络包
+
+```
+# 自己封装的抓取函数
+getHtml(url, daili='', postdata={}, header=[])
+```
+
+3.jfile　文件包
+
+```
+# 找出文件夹下所有html后缀的文件
+def listfiles(rootdir, prefix='.xml')
+
+# 将数据写入Excel
+def writeexcel(path, dealcontent=[])
+
+# 去除标题中的非法字符 (Windows)
+def validateTitle(title)
+
+# 递归创建文件夹
+def createjia(path)
+
+# 今天日期的字符串
+def todaystring()
+```
