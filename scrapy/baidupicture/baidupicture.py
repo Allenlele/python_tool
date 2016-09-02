@@ -53,6 +53,17 @@ if __name__ == '__main__':
 
     # 搜索的关键字
     keyword = input('请输入你要查找的关键字：')
+
+    pictype = {
+        "1": "thumbURL",
+        "2": "middleURL",
+        "3": "hoverURL"
+    }
+
+    temp = input("抓大图按3，中图2，小图1：")
+    if temp != '1' and temp != '2' and temp != '3':
+        baibai = pictype['1']
+    baibai = pictype[temp]
     # 页数
     page = int(input('你要抓取多少页：'))
 
@@ -138,7 +149,7 @@ if __name__ == '__main__':
 
         for item in onefile:
             try:
-                pic = getimg(item['thumbURL'])
+                pic = getimg(item[baibai])
                 # 保存地址和名称
                 if item['fromPageTitleEnc']:
                     filenamep = picpath + '/' + validateTitle(item['fromPageTitleEnc'])
@@ -147,16 +158,16 @@ if __name__ == '__main__':
 
                 # 保存为gif
                 houzhui = "gif"
-                xxpic=filenamep + "." + houzhui
+                xxpic = filenamep + "." + houzhui
                 filess = open(xxpic, 'wb')
                 filess.write(pic.read())
                 filess.close()
                 print('图片:' + xxpic + ' 下载完成')
 
                 # 改名
-                realxxpic=filenamep+"."+filetype(xxpic)
-                os.rename(xxpic,realxxpic)
-                print('图片改名:' + realxxpic )
+                realxxpic = filenamep + "." + filetype(xxpic)
+                os.rename(xxpic, realxxpic)
+                print('图片改名:' + realxxpic)
 
                 # 每一次下载都暂停1-3秒
                 loadimg = random.randint(1, 3)
@@ -167,4 +178,4 @@ if __name__ == '__main__':
                 print(err)
                 print('暂停' + str(loadimg) + '秒')
                 time.sleep(loadimg)
-                pass
+                continue
